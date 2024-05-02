@@ -1,0 +1,79 @@
+
+
+.form {
+    width: 90%;
+    max-width: 35rem;
+    text-align: center;
+    padding: 0.5rem;
+    margin:40px auto;
+  }
+  
+  .control {
+    margin: 1rem 0;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
+  
+  .control label,
+  .control input,
+  .control select,
+  .control textarea {
+    display: block;
+  }
+  
+  .control label {
+    font-weight: bold;
+    flex: 1;
+    color: #464646;
+    margin-bottom: 0.5rem;
+  }
+  
+  .control input,
+  .control select,
+  .control textarea {
+    flex: 3;
+    font: inherit;
+    padding: 0.35rem 0.35rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .control input:focus,
+  .control select:focus,
+  .control textarea:focus {
+    outline: none;
+    border-color: rgb(254, 182, 194);
+    background: rgb(252, 226, 230)
+  }
+  
+  .actions {
+    text-align: center;
+    margin: 2rem 2rem 0 2rem;
+  }
+  .actions button {
+    border: rgb(6, 108, 172);
+    background-color: rgb(6, 108, 172);
+    color: white;
+    font: inherit;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin: 0.5rem;
+  }
+  .action button:hover,
+  .action button:active {
+    border: rgb(4, 78, 123);
+    background-color: rgb(4, 78, 123);
+  }
+  
+  @media (min-width: 768px) {
+    .control {
+      align-items: center;
+      flex-direction: row;
+    }
+    .actions {
+      align-items: center;
+    }
+  }
+  

@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "catagory": "Electronics"
+    },
+    {
+      "id": 2,
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "catagory": "Electronics"
+    },
+    {
+      "id": 3,
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "catagory": "Electronics"
+    },
+    {
+      "id": 4,
+      "title": "Brown Perfume",
+      "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+      "price": 4000,
+      "catagory": "Perfume"
+    },
+    {
+      "id": 5,
+      "title": "Fog Scent Xpressio Perfume",
+      "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+      "price": 456,
+      "catagory": "Perfume"
+    },
+    {
+      "id": 6,
+      "title": "Hyaluronic Acid Serum",
+      "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+      "price": 452,
+      "catagory": "Skincare"
+    },
+    {
+      "id": 7,
+      "title": "Tree Oil 30ml",
+      "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+      "price": 260,
+      "catagory": "Skincare"
+    },
+    {
+      "id": 8,
+      "title": "Patanjali Daal Masoor 500 grams",
+      "description": "Fine quality Branded Product Keep in a cool and dry place",
+      "price": 120,
+      "catagory": "Grocery"
+    },
+    {
+      "id": 9,
+      "title": "Flying Wooden Bird",
+      "description": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
+      "price": 510,
+      "catagory": "Home Decor"
+    },
+    {
+      "id": 10,
+      "title": "3D Embellishment Art Lamp",
+      "description": "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
+      "price": 295,
+      "catagory": "Home Decor"
+    }
+  ]
+}

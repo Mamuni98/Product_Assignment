@@ -1,0 +1,8 @@
+.productlists {
+    list-style: none;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 98%;
+    max-width: 50rem;
+    text-align: center;
+  }
