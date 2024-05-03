@@ -2,12 +2,34 @@ import classes from "./SortProduct.module.css";
 import { useDispatch } from "react-redux";
 import { productActions } from "../store/products";
 import { useEffect, useState } from "react";
+import axios from "axios";
+
 const SortProduct = () => {
   const dispatch = useDispatch();
   const [sortBy, setSortBy] = useState("featured");
 
   useEffect(() => {
     dispatch(productActions.addSortBy(sortBy));
+  }, [sortBy, dispatch]);
+  useEffect(() => {
+    const useremail = localStorage.getItem("email");
+    if (useremail && sortBy === "featured") {
+      const user = useremail.replace("@", "").replace(".", "");
+
+      const finalDataFromDataBase = async () => {
+        try {
+          const response = await axios.get(
+            `https://productsassignment-default-rtdb.firebaseio.com/${user}.json`
+          );
+          if(response.data){
+            dispatch(productActions.saveFinalList(response.data.userProducts));
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      finalDataFromDataBase();
+    }
   }, [sortBy, dispatch]);
 
   const sortProductsHandler = (e) => {

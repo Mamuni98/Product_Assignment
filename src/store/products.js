@@ -37,6 +37,7 @@ const productSlice = createSlice({
       );
       const editDetail = state.allProducts[existingItemIndex];
       state.editData = editDetail;
+      state.change = true;
     },
     saveFinalList(state, action) {
       state.allProducts = action.payload;
@@ -50,10 +51,11 @@ const productSlice = createSlice({
         const letters = action.payload.toLowerCase();
         state.searchLetter = letters;
       }
+      state.change = false;
     },
     addSortBy(state, action) {
-      state.sort = true;
       let products = [...state.allProducts];
+      state.sort = true;
       let sorted;
       if (action.payload === "featured") {
         sorted = products;

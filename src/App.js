@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 function App() {
   const IsLoggedIn = useSelector((state) => state.auth.IsLoggedIn);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -28,6 +28,29 @@ function App() {
     };
     getData();
   }, []);
+
+  useEffect(() => {
+    const useremail = localStorage.getItem("email");
+    if (useremail) {
+      const user = useremail.replace("@", "").replace(".", "");
+
+      const finalDataFromDataBase = async () => {
+        try {
+          const response = await axios.get(
+            `https://productsassignment-default-rtdb.firebaseio.com/${user}.json`
+          );
+          console.log(response.data);
+          if(response.data){
+            dispatch(productActions.saveFinalList(response.data.userProducts));
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      finalDataFromDataBase();
+    }
+  }, [IsLoggedIn, dispatch]);
+
   return (
     <div className="App">
       <main>
