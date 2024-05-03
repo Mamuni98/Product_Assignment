@@ -1,7 +1,7 @@
 import classes from "./ProductForm.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productActions } from "../store/products";
 
 const ProductForm = () => {
@@ -13,14 +13,30 @@ const ProductForm = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const editData = useSelector((state) => state.products.editData);
+  useEffect(() => {
+    if (Object.keys(editData).length > 0) {
+      setData({
+        title: editData.title,
+        catagory: editData.catagory,
+        price: editData.price,
+        description: editData.description,
+      });
+    }
+  }, [editData]);
+  
   const changeHandler = (event) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
   };
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    const finalData = { ...data, id: Math.random().toString() };
+    let finalData;
+    if (Object.keys(editData).length > 0) {
+       finalData = { ...data, id: editData.id };
+    } else {
+       finalData = { ...data, id: Math.random().toString() };
+    }
     dispatch(productActions.addProduct(finalData));
     setData({
       title: "",
