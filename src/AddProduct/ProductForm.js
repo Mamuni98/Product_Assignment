@@ -1,16 +1,49 @@
 import classes from "./ProductForm.module.css";
+import { useState } from "react";
 const ProductForm = () => {
+  const [data, setData] = useState({
+    title: "",
+    catagory: "",
+    price: "",
+    description: "",
+  });
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setData({ ...data, [name]: value });
+  };
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+    const finalData = { ...data, id: Math.random().toString() };
+    console.log(finalData);
+    setData({
+      title: "",
+      catagory: "",
+      price: "",
+      description: "",
+    });
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={formSubmitHandler}>
         <div className={classes.form}>
           <div className={classes.control}>
             <label>Title</label>
-            <input type="text" placeholder="Enter product name" />
+            <input
+              type="text"
+              placeholder="Enter product name"
+              name="title"
+              value={data.title}
+              onChange={changeHandler}
+            />
           </div>
           <div className={classes.control}>
             <label>Catagory</label>
-            <select>
+            <select
+              name="catagory"
+              value={data.catagory}
+              onChange={changeHandler}
+            >
               <option value="Perfume">Perfume</option>
               <option value="Electronics">Electronics</option>
               <option value="Grocery">Grocery</option>
@@ -25,7 +58,13 @@ const ProductForm = () => {
 
           <div className={classes.control}>
             <label>Price</label>
-            <input type="number" min={1} />
+            <input
+              type="number"
+              min={1}
+              name="price"
+              value={data.price}
+              onChange={changeHandler}
+            />
           </div>
           <div className={classes.control}>
             <label>Description</label>
@@ -33,6 +72,9 @@ const ProductForm = () => {
               rows="5"
               cols="50"
               placeholder="Add details about the product here..."
+              name="description"
+              value={data.description}
+              onChange={changeHandler}
             ></textarea>
           </div>
           <div className={classes.actions}>

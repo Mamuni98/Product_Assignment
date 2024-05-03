@@ -1,13 +1,33 @@
 import "./App.css";
+import { useEffect } from "react";
+import axios from "axios";
+//import jsonData from "./data/dummyData.json";
 import LogIn from "./Authentication/LogIn";
 import SignUp from "./Authentication/SignUp";
+import { productActions } from "./store/products";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductForm from "./AddProduct/ProductForm";
 import ProductList from "./Product/ProductList";
 import Navbar from "./Navbar/Navbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 function App() {
   const IsLoggedIn = useSelector((state) => state.auth.IsLoggedIn);
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(
+          "https://productsassignment-default-rtdb.firebaseio.com/products.json"
+        );
+        const data = Object.values(response.data);
+        dispatch(productActions.saveFinalList(data[0]));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getData();
+  }, []);
   return (
     <div className="App">
       <main>

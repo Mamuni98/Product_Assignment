@@ -1,11 +1,10 @@
 import classes from "./ProductList.module.css";
 import Product from "./Product";
-import data from "../data/dummyData.json";
 import SearchBar from "../Search/SearchBar";
 import SortProduct from "../Search/SortProduct";
-
+import { useSelector } from "react-redux";
 const ProductList = () => {
-  const products = data.products;
+  const products = useSelector((state) => state.products.allProducts);
   return (
     <>
       <SearchBar />
