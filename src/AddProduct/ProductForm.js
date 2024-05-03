@@ -24,11 +24,13 @@ const ProductForm = () => {
       });
     }
   }, [editData]);
-  
+
   const changeHandler = (event) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
   };
+
+  //added data to the list
   const formSubmitHandler = (event) => {
     event.preventDefault();
     let finalData;
