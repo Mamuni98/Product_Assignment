@@ -30,7 +30,7 @@ function App() {
       }
     };
     getData();
-  }, []);
+  }, [dispatch]);
 
   //get all user specific data
   useEffect(() => {
