@@ -3,6 +3,8 @@ const productsInitialState = {
   change: false,
   allProducts: [],
   editData: {},
+  sort: true,
+  searchLetter: "",
 };
 
 const productSlice = createSlice({
@@ -38,6 +40,33 @@ const productSlice = createSlice({
     },
     saveFinalList(state, action) {
       state.allProducts = action.payload;
+      state.change = false;
+    },
+    addSearchLetter(state, action) {
+      if (action.payload.length === 0) {
+        state.sort = true;
+      } else {
+        state.sort = false;
+        const letters = action.payload.toLowerCase();
+        state.searchLetter = letters;
+      }
+    },
+    addSortBy(state, action) {
+      state.sort = true;
+      let products = [...state.allProducts];
+      let sorted;
+      if (action.payload === "featured") {
+        sorted = products;
+      } else if (action.payload === "low to high") {
+        sorted = products.sort((a, b) => {
+          return a.price - b.price;
+        });
+      } else {
+        sorted = products.sort((a, b) => {
+          return b.price - a.price;
+        });
+      }
+      state.allProducts = sorted;
       state.change = false;
     },
   },

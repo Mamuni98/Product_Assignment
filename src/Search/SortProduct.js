@@ -1,13 +1,13 @@
 import classes from "./SortProduct.module.css";
 import { useDispatch } from "react-redux";
-import { productFilterActions } from "../store/filterSort";
+import { productActions } from "../store/products";
 import { useEffect, useState } from "react";
 const SortProduct = () => {
   const dispatch = useDispatch();
   const [sortBy, setSortBy] = useState("featured");
 
   useEffect(() => {
-    dispatch(productFilterActions.addFilterSortBy(sortBy));
+    dispatch(productActions.addSortBy(sortBy));
   }, [sortBy, dispatch]);
 
   const sortProductsHandler = (e) => {

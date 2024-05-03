@@ -1,14 +1,13 @@
 import classes from "./SearchBar.module.css";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { productFilterActions } from "../store/filterSort";
-
+import { productActions } from "../store/products";
 const SearchBar = () => {
   const [searchLetters, setSearchLetters] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(productFilterActions.addSearchLetter(searchLetters));
+    dispatch(productActions.addSearchLetter(searchLetters));
   }, [searchLetters, dispatch]);
 
   const searchHandler = (event) => {
