@@ -1,5 +1,8 @@
 import classes from "./ProductForm.module.css";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { productActions } from "../store/products";
+
 const ProductForm = () => {
   const [data, setData] = useState({
     title: "",
@@ -7,6 +10,8 @@ const ProductForm = () => {
     price: "",
     description: "",
   });
+  const dispatch = useDispatch();
+
   const changeHandler = (event) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
@@ -14,7 +19,7 @@ const ProductForm = () => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const finalData = { ...data, id: Math.random().toString() };
-    console.log(finalData);
+    dispatch(productActions.addProduct(finalData));
     setData({
       title: "",
       catagory: "",
