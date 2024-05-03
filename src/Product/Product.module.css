@@ -1,62 +1,66 @@
 .list {
-    display: flex;
-    width: 80%;
-    max-width: 40rem;
-    justify-content: space-between;
-    border-radius: 12px;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
-    padding: 1rem;
-    margin: 0.8rem auto;
-    background-color: rgb(240, 249, 255);
-    border: 1px solid rgb(3, 70, 112);
+  display: flex;
+  width: 80%;
+  max-width: 40rem;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  margin: 0.8rem auto;
+  background-color: rgb(240, 249, 255);
+  border: 1px solid rgb(3, 70, 112);
+}
+.list:hover,
+.list:active {
+  background-color: rgb(250, 219, 224);
+}
+.list a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.list a:hover,
+.list a:active {
+  background-color: rgb(250, 253, 254);
+}
+.listcontent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.listcontent h3 {
+  margin: 0;
+  font-style: normal;
+  text-align: start;
+  color: rgb(4, 83, 132);
+}
+.listcontent h4 {
+  text-align: start;
+  margin: 0;
+  font-style: italic;
+  color: rgb(150, 148, 148);
+}
+.listbtns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.listbtns button {
+  border: 1px solid rgb(6, 108, 172);
+  background-color: rgb(6, 108, 172);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+}
+.listbtns button:hover,
+.listbtns button:active {
+  border: rgb(4, 78, 123);
+  background-color: rgb(4, 78, 123);
+}
+@media (min-width: 768px) {
+  .list {
+    align-items: center;
+    flex-direction: row;
   }
-  .list a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .list a:hover,
-  .list a:active {
-    background-color:rgb(250, 253, 254);
-  }
-  .listcontent {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .listcontent h3 {
-    margin: 0;
-    font-style: normal;
-    text-align: start;
-    color: rgb(4, 83, 132);
-  }
-  .listcontent h4 {
-    text-align: start;
-    margin: 0;
-    font-style: italic;
-    color: rgb(150, 148, 148);
-  }
-  .listbtns {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .listbtns button {
-    border:1px solid rgb(6, 108, 172);
-    background-color: rgb(6, 108, 172);
-    color: white;
-    font: inherit;
-    cursor: pointer;
-    padding: 0.4rem 0.8rem;
-    border-radius: 12px;
-  }
-  .listbtns button:hover,
-  .listbtns button:active {
-    border: rgb(4, 78, 123);
-    background-color: rgb(4, 78, 123);
-  }
-  @media (min-width: 768px) {
-      .list {
-        align-items: center;
-        flex-direction: row;
-      }
-    }
+}

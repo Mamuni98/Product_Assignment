@@ -32,8 +32,11 @@
 
 .header a {
   text-decoration: none;
-  color: rgb(10, 204, 221);
   font-weight: bold;
+}
+.header a:hover,
+a:active {
+  background-color: rgb(231, 18, 167);
 }
 
 .header button {
@@ -47,9 +50,6 @@
   cursor: pointer;
 }
 
-.header a:hover {
-  color: #c291e2;
-}
 
 .header button:hover {
   background-color: #c291e2;
