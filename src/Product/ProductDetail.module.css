@@ -1,0 +1,31 @@
+.read {
+    margin: 2rem auto;
+    text-align: center;
+  }
+  .read h1 {
+    color: rgb(4, 83, 132);
+  }
+  
+  .read p {
+    display: block;
+    padding: 2rem;
+    font-size: 18px;
+    line-height: 200%;
+  }
+  
+  .read button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: rgb(6, 108, 172);
+    background-color: rgb(6, 108, 172);
+    color: white;
+    border-radius: 12px;
+    margin: 1rem;
+  }
+  .read button:hover,
+  .read button:active {
+    border: rgb(4, 78, 123);
+    background-color: rgb(4, 78, 123);
+  }
+  

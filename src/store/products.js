@@ -3,6 +3,7 @@ const productsInitialState = {
   change: false,
   allProducts: [],
   editData: {},
+  readDetail: {},
   sort: true,
   searchLetter: "",
 };
@@ -38,6 +39,10 @@ const productSlice = createSlice({
       const editDetail = state.allProducts[existingItemIndex];
       state.editData = editDetail;
       state.change = true;
+    },
+    addProductDetail(state, action) {
+      state.readDetail = action.payload;
+      state.change = false;
     },
     saveFinalList(state, action) {
       state.allProducts = action.payload;

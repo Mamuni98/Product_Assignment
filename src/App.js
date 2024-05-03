@@ -8,12 +8,15 @@ import { productActions } from "./store/products";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductForm from "./AddProduct/ProductForm";
 import ProductList from "./Product/ProductList";
+import ProductDetail from "./Product/ProductDetail";
 import Navbar from "./Navbar/Navbar";
 import { useSelector, useDispatch } from "react-redux";
+
 function App() {
   const IsLoggedIn = useSelector((state) => state.auth.IsLoggedIn);
   const dispatch = useDispatch();
 
+  //products for all users
   useEffect(() => {
     const getData = async () => {
       try {
@@ -29,6 +32,7 @@ function App() {
     getData();
   }, []);
 
+  //get all user specific data
   useEffect(() => {
     const useremail = localStorage.getItem("email");
     if (useremail) {
@@ -39,7 +43,6 @@ function App() {
           const response = await axios.get(
             `https://productsassignment-default-rtdb.firebaseio.com/${user}.json`
           );
-          console.log(response.data);
           if(response.data){
             dispatch(productActions.saveFinalList(response.data.userProducts));
           }
@@ -63,6 +66,12 @@ function App() {
           path="/product"
           element={
             IsLoggedIn ? <ProductList /> : <Navigate replace to="/logIn" />
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={
+            IsLoggedIn ? <ProductDetail /> : <Navigate replace to="/logIn" />
           }
         />
         <Route
