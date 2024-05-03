@@ -1,5 +1,6 @@
 import classes from "./ProductForm.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { productActions } from "../store/products";
 
@@ -11,6 +12,7 @@ const ProductForm = () => {
     description: "",
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -26,6 +28,8 @@ const ProductForm = () => {
       price: "",
       description: "",
     });
+    navigate("/product");
+    alert("Product added successfully..");
   };
 
   return (

@@ -1,6 +1,12 @@
 import classes from "./Product.module.css";
-
-const Product = ({title, price}) => {
+import { productActions } from "../store/products";
+import { useDispatch } from "react-redux";
+const Product = ({ id, title, price }) => {
+  
+  const dispatch = useDispatch();
+  const deleteProductHandler = () => {
+    dispatch(productActions.deleteProduct(id));
+  };
   return (
     <li className={classes.list}>
       <div className={classes.listcontent}>
@@ -9,7 +15,8 @@ const Product = ({title, price}) => {
       </div>
 
       <div className={classes.listbtns}>
-        <button>Delete</button>
+        <button>Edit</button>
+        <button onClick={deleteProductHandler}>Delete</button>
       </div>
     </li>
   );
